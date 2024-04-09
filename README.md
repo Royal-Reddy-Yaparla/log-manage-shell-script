@@ -1,0 +1,1 @@
+# log-remove-shell-script
