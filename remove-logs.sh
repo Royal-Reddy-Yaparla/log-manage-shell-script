@@ -18,10 +18,10 @@ if [ ! -d "$SOURCE_DIRC" ]; then
   echo -e "$R ERROR:: $SOURCE_DIRC does exist.$N"
 fi
 
-FILES_DELETE=$(find $SOURCE_DIRC -mtime +14 -type f -name '*.log')
+FILES_DELETE=$(find $SOURCE_DIRC -mtime +$DURATION -type f -name '*.log')
 
 while IFS= read -r line
 do 
-    echo "Deleting the file .. $R $line $N"
+    echo -e "Deleting the file .. $R $line $N"
     rm -rf $line
 done <<< $FILES_DELETE
