@@ -55,7 +55,7 @@ if [ $ACTION == $ARCHIEVE ]
 then  
   echo "Enter Destination Direcory"
   read -r DESINATION_DIRC
-  zip -9 $DESINATION_DIRC $FILES
+  zip -9 $DESINATION_DIRC.zip $FILES
 fi 
 
 
