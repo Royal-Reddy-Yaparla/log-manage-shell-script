@@ -1,6 +1,4 @@
 #!/bin/bash
-#!/bin/bash
-
 ###############################################
 # Author: ROYAL REDDY
 # Date: 09-04
@@ -15,6 +13,8 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
+
+
 while getopts s:t: flag
 do
     case "${flag}" in
@@ -23,6 +23,13 @@ do
     esac
 done
 
+if [ -n "$SOURCE_DIRC" ]; then
+    echo "Must Provide Source directory"
+fi
+
+if [ -n "$DURATION" ]; then
+    echo "Must Provide Duration to take to backup"
+fi
 
 DELETE="delete"
 ARCHIEVE="archieve"
