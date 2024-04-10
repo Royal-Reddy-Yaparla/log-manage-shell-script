@@ -6,11 +6,15 @@
 # Purpose: Remove and archieve logs morethan 14days
 # Inputs: -s <source_directory>" -t <duration to backup>
 ################################################
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 if [ $# -eq 0 ]
   then
-    echo "No arguments supplied Please pass arguments"
-    echo "example: sh $0 -s <source_directory> -t <duration>"
+    echo -e "$R ERROR:No arguments supplied Please pass arguments $N"
+    echo "$Y example: sh $0 -s <source_directory> -t <duration> $N"
     exit 1
 fi
 
@@ -25,12 +29,12 @@ do
 done
 
 if [ -z "$SOURCE_DIRC" ]; then
-    echo "Must Provide Source directory" 
+    echo -e "$R Must Provide Source directory $N" 
     exit 1
 fi
 
 if [ -z "$DURATION" ]; then
-    echo "Must Provide Duration to take to backup"
+    echo -e "$R Must Provide Duration to take to backup $N"
     exit 1
 fi
 
@@ -81,7 +85,7 @@ then
   echo "Enter Destination Direcory"
   read -r DESINATION_DIRC
   if [ -z "$DESINATION_DIRC" ]; then
-    echo "Must Provide Destination Directory"
+    echo -e "$R Must Provide Destination Directory$N"
     exit 1
   fi
   zip -9 "$DESINATION_DIRC/log.zip" $FILES
