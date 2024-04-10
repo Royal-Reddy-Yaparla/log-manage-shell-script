@@ -89,6 +89,7 @@ then
     exit 1
   fi
   zip -9 "$DESINATION_DIRC/log.zip" $FILES
+  echo -e "zipping process $G SUCCESS$N"
 fi 
 
 
