@@ -1,4 +1,19 @@
 #!/bin/bash
+#!/bin/bash
+
+###############################################
+# Author: ROYAL REDDY
+# Date: 09-04
+# Version: V1
+# Purpose: Remove and archieve logs morethan 14days
+################################################
+
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied Please pass arguments"
+    echo "example: sh $0 -s <source_directory> -t <duration>"
+    exit 1
+fi
 
 while getopts s:t: flag
 do
