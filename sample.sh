@@ -4,6 +4,7 @@
 # Date: 09-04
 # Version: V1
 # Purpose: Remove and archieve logs morethan 14days
+# Inputs: -s <source_directory>" -t <duration to backup>
 ################################################
 
 if [ $# -eq 0 ]
@@ -24,11 +25,13 @@ do
 done
 
 if [ -z "$SOURCE_DIRC" ]; then
-    echo "Must Provide Source directory"
+    echo "Must Provide Source directory" 
+    exit 1
 fi
 
 if [ -z "$DURATION" ]; then
     echo "Must Provide Duration to take to backup"
+    exit 1
 fi
 
 DELETE="delete"
@@ -77,6 +80,10 @@ if [ $ACTION == $ARCHIEVE ]
 then  
   echo "Enter Destination Direcory"
   read -r DESINATION_DIRC
+  if [ -z "$DESINATION_DIRC" ]; then
+    echo "Must Provide Destination Directory"
+    exit 1
+  fi
   zip -9 "$DESINATION_DIRC/log.zip" $FILES
 fi 
 
